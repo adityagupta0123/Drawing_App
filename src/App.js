@@ -1,6 +1,9 @@
 import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
 import rough from "roughjs/bundled/rough.esm";
 import getStroke from "perfect-freehand";
+import "../src/App.css";
+
+
 
 const generator = rough.generator();
 
@@ -169,6 +172,7 @@ const drawElement = (roughCanvas, context, element) => {
     case "pencil":
       const stroke = getSvgPathFromStroke(getStroke(element.points));
       context.fill(new Path2D(stroke));
+      
       break;
     case "text":
       context.textBaseline = "top";
@@ -182,10 +186,16 @@ const drawElement = (roughCanvas, context, element) => {
 
 const adjustmentRequired = type => ["line", "rectangle"].includes(type);
 
+
+
+
 const App = () => {
+
+
+
   const [elements, setElements, undo, redo] = useHistory([]);
   const [action, setAction] = useState("none");
-  const [tool, setTool] = useState("text");
+  const [tool, setTool] = useState("pencil");
   const [selectedElement, setSelectedElement] = useState(null);
   const textAreaRef = useRef();
 
@@ -364,37 +374,59 @@ const App = () => {
   };
 
   return (
+
     <div>
-      <div style={{ position: "fixed" }}>
+     <nav class="navbar bg-light fixed-top">
+     <div class="container-fluid">
+       <button class="navbar-toggler " type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+         <span class="navbar-toggler-icon"></span>
+       </button> 
+       <a class="navbar-brand headline me-auto" href="#">AdDraw</a>
+       <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+         <div class="offcanvas-header">
+           <h5 class="offcanvas-title headline" id="offcanvasNavbarLabel">AdDraw</h5>
+           <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+         </div>
+         <div class="offcanvas-body">
+           <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+             <li class="nav-item">
+               <a class="nav-link active" aria-current="page" href="#">Home</a>
+             </li>
+           </ul>
+          </div>
+        </div>
+       </div>
+      </nav>
+      
+      <div class = "items " style={{ position: "fixed" , bottom: 0}}>
         <input
           type="radio"
           id="selection"
           checked={tool === "selection"}
           onChange={() => setTool("selection")}
         />
-        <label htmlFor="selection">Selection</label>
+        <label htmlFor="selection"><img class = "logoImg" src= "/image/selection.png" alt="Logo"/>Selection</label>
         <input type="radio" id="line" checked={tool === "line"} onChange={() => setTool("line")} />
-        <label htmlFor="line">Line</label>
+        <label htmlFor="line"><img class = "logoImg" src= "/image/line.png" alt="Logo"/>Line</label>
         <input
           type="radio"
           id="rectangle"
           checked={tool === "rectangle"}
           onChange={() => setTool("rectangle")}
         />
-        <label htmlFor="rectangle">Rectangle</label>
+        <label htmlFor="rectangle"><img class = "logoImg" src= "/image/rectangle.png" alt="Logo"/>Rectangle</label>
         <input
           type="radio"
           id="pencil"
           checked={tool === "pencil"}
           onChange={() => setTool("pencil")}
         />
-        <label htmlFor="pencil">Pencil</label>
+        <label htmlFor="pencil"><img class = "logoImg" src= "/image/pencil.png" alt="Logo"/>Pencil</label>
         <input type="radio" id="text" checked={tool === "text"} onChange={() => setTool("text")} />
-        <label htmlFor="text">Text</label>
-      </div>
-      <div style={{ position: "fixed", bottom: 0, padding: 10 }}>
-        <button onClick={undo}>Undo</button>
-        <button onClick={redo}>Redo</button>
+        <label htmlFor="text"><img class = "logoImg" src= "/image/text.png" alt="Logo"/>Text</label>
+        
+        <button onClick={undo}><img class = "logoImg" src= "/image/undo.png" alt="Logo"/>Undo</button>
+        <button onClick={redo}><img class = "logoImg" src= "/image/redo.png" alt="Logo"/>Redo</button>
       </div>
       {action === "writing" ? (
         <textarea
