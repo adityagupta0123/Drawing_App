@@ -21,12 +21,6 @@ body{
    padding: 0 3rem  0;
 }
 
-.logoImg {
-  width: 6%;
-  height: 6%;
-  margin: .8rem;
-}
-
 /* .items {
 
   margin: 3rem;
@@ -43,20 +37,15 @@ body{
 .wrapper .sidebar{
  width: 210px;
  height: 100%;
- background: #4b4276;
+ background: #4e4193;
  padding: 20px 0px;
  position: fixed;
 }
 
-.wrapper .sidebar h2{
- color: #fff;
- text-transform: uppercase;
- text-align: center;
- margin-bottom: 30px;
-}
+
 
  ul li{
- padding: 15px;
+ padding: 12px;
  border-bottom: 1px solid #bdb8d7;
  border-bottom: 1px solid rgba(0,0,0,0.05);
  border-top: 1px solid rgba(255,255,255,0.05);
@@ -99,4 +88,10 @@ body{
  /* border-top-left-radius: 5px;
  border-top-right-radius: 5px; */
  border-radius: 35%;
+}
+
+.logoImg {
+  width: 20%;
+  height: 100%;
+  margin:.1rem 0 ;
 }

@@ -451,10 +451,10 @@ const App = () => {
                   <label htmlFor="text"><img class = "logoImg" src= "/image/text.png" alt="Logo"/>Text</label>   
                 </a></li>
                 <li><a href="#">
-                  <button onClick={undo}><img class = "logoImg" src= "/image/undo.png" alt="Logo"/>Undo</button>                  
+                  < ><img onClick={undo} class = "logoImg" src= "/image/undo.png" alt="Logo"/>Undo</>                  
                 </a></li>
                 <li><a href="#">
-                  <button onClick={redo}><img class = "logoImg" src= "/image/redo.png" alt="Logo"/>Redo</button>                  
+                  < ><img onClick={redo} class = "logoImg" src= "/image/redo.png" alt="Logo"/>Redo</>                  
                 </a></li>
                 
             </ul> 
