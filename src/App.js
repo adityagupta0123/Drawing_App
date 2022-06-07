@@ -390,44 +390,81 @@ const App = () => {
          <div class="offcanvas-body">
            <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
              <li class="nav-item">
-               <a class="nav-link active" aria-current="page" href="#">Home</a>
+               <a class="nav-link active" aria-current="page" href="#"> <i class="fas fa-home"></i>Home</a>
+             </li>
+             <li class="nav-item">
+                <a class="nav-link active"><i class="fas fa-user"> </i>Profile</a>
+             </li>
+             <li class="nav-item">
+                <a class="nav-link active"><i class="fas fa-address-card"> </i>About</a>
+             </li>
+             <li class="nav-item">
+                <a class="nav-link active"><i class="fas fa-address-book"> </i>Contact</a>
              </li>
            </ul>
+           <div class="social_media">
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
           </div>
         </div>
        </div>
       </nav>
+
+      <div class="wrapper">
+          <div class="sidebar">
+            <ul>
+                <li><a href="#">
+                <input
+                  type="radio"
+                  id="selection"
+                  checked={tool === "selection"}
+                  onChange={() => setTool("selection")}
+                />
+                <label htmlFor="selection"><img class = "logoImg" src= "/image/selection.png" alt="Logo"/>Selection</label>
+                </a></li>
+                <li><a href="#">
+                <input
+                  type="radio"
+                  id="pencil"
+                  checked={tool === "pencil"}
+                  onChange={() => setTool("pencil")}
+                />
+                <label htmlFor="pencil"><img class = "logoImg" src= "/image/pencil.png" alt="Logo"/>Pencil</label>                
+                </a></li>
+                <li><a href="#">
+                  <input type="radio" id="line" checked={tool === "line"} onChange={() => setTool("line")} />
+                  <label htmlFor="line"><img class = "logoImg" src= "/image/line.png" alt="Logo"/>Line</label>
+                </a></li>
+                <li><a href="#">
+                  <input
+                    type="radio"
+                    id="rectangle"
+                    checked={tool === "rectangle"}
+                    onChange={() => setTool("rectangle")}
+                  />
+                  <label htmlFor="rectangle"><img class = "logoImg" src= "/image/rectangle.png" alt="Logo"/>Rectangle</label>  
+                </a></li>
+                <li><a href="#">
+                  <input type="radio" id="text" checked={tool === "text"} onChange={() => setTool("text")} />
+                  <label htmlFor="text"><img class = "logoImg" src= "/image/text.png" alt="Logo"/>Text</label>   
+                </a></li>
+                <li><a href="#">
+                  <button onClick={undo}><img class = "logoImg" src= "/image/undo.png" alt="Logo"/>Undo</button>                  
+                </a></li>
+                <li><a href="#">
+                  <button onClick={redo}><img class = "logoImg" src= "/image/redo.png" alt="Logo"/>Redo</button>                  
+                </a></li>
+                
+            </ul> 
+            
+          </div>
+        </div>
       
-      <div class = "items " style={{ position: "fixed" , bottom: 0}}>
-        <input
-          type="radio"
-          id="selection"
-          checked={tool === "selection"}
-          onChange={() => setTool("selection")}
-        />
-        <label htmlFor="selection"><img class = "logoImg" src= "/image/selection.png" alt="Logo"/>Selection</label>
-        <input type="radio" id="line" checked={tool === "line"} onChange={() => setTool("line")} />
-        <label htmlFor="line"><img class = "logoImg" src= "/image/line.png" alt="Logo"/>Line</label>
-        <input
-          type="radio"
-          id="rectangle"
-          checked={tool === "rectangle"}
-          onChange={() => setTool("rectangle")}
-        />
-        <label htmlFor="rectangle"><img class = "logoImg" src= "/image/rectangle.png" alt="Logo"/>Rectangle</label>
-        <input
-          type="radio"
-          id="pencil"
-          checked={tool === "pencil"}
-          onChange={() => setTool("pencil")}
-        />
-        <label htmlFor="pencil"><img class = "logoImg" src= "/image/pencil.png" alt="Logo"/>Pencil</label>
-        <input type="radio" id="text" checked={tool === "text"} onChange={() => setTool("text")} />
-        <label htmlFor="text"><img class = "logoImg" src= "/image/text.png" alt="Logo"/>Text</label>
+      {/* <div class = "items " style={{ }}>        
         
-        <button onClick={undo}><img class = "logoImg" src= "/image/undo.png" alt="Logo"/>Undo</button>
-        <button onClick={redo}><img class = "logoImg" src= "/image/redo.png" alt="Logo"/>Redo</button>
-      </div>
+      </div> */}
       {action === "writing" ? (
         <textarea
           ref={textAreaRef}
