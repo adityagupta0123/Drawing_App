@@ -15,23 +15,17 @@ body{
 }
 
 .navbar {
-  background-color: #F0ECE3;
+  background-color: #ededec;
 }
 
 .headline {
    font-family: 'Roboto Mono', monospace;
    font-size: x-large;
-   color: #6a5f50 ;
+   color: #2c2b29 ;
    padding: 0 2rem  0;
 
 }
 
-/* .items {
-
-  margin: 3rem;
-  padding: 1rem;
-  
-} */
 
 .wrapper{
  margin-top: 2rem;
@@ -57,20 +51,31 @@ body{
 }    
 
  ul li a{
- color: #bdb8d7;
+ /* color: #bdb8d7; */
+ color: #31281c;
  display: block;
+}
+
+.home{
+  border-bottom:2px double #594f8d;
 }
 
  ul li a .fas{
  width: 25px;
 }
 
- /* ul li:hover{
- background-color: #594f8d;
-} */
+.offcanvas-body{
+  background-color: #dddad4 ;
+}
+
+.navbar ul li:hover{
+  font-size: smaller;
+ }
+ 
    
  ul li:hover a{
  color: #fff;
+ cursor: pointer;
 }
 
  .social_media{
@@ -84,43 +89,27 @@ body{
 .social_media a{
  display: block;
  width: 40px;
- background: #594f8d;
+ background: #c3c5c4;
  height: 40px;
  line-height: 45px;
  text-align: center;
  margin:  7px;
- color: #bdb8d7;
+ color:#181D31 ;
  /* border-top-left-radius: 5px;
  border-top-right-radius: 5px; */
  border-radius: 35%;
+}
+
+.social_media :hover{
+  width: 45px;
+  border-radius: 25%;
+  color: #2f385c ;
 }
 
 .logoImg {
   width: 20%;
   height: 100%;
   margin:.1rem 0 ;
-  border-bottom:1px double black;
-}
-
-.logoImg:before {
-  content: "selection";
-  visibility: hidden;
-  opacity: 0;
-  width: max-content;
-  background-color: black;
-  color: #fff;
-  text-align: center;
-  border-radius: 5px;
-  padding: 5px 5px;
-  transition: opacity 1s ease-in-out;
-
-  position: absolute;
-  z-index: 1;
-  left: 0;
-  top: 110%;
-}
-
-.logoImg:hover:before {
-  opacity: 1;
-  visibility: visible;
+  /* border-bottom:1px double black; */
+  /* color: #41392e; */
 }

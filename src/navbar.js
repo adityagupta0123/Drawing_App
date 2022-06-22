@@ -17,8 +17,8 @@ function navbar() {
          </div>
          <div className = "offcanvas-body">
            <ul className = "navbar-nav justify-content-end flex-grow-1 pe-3">
-             <li className = "nav-item">
-               <a className = "nav-link active" aria-current="page" href="#"> <i className = "fas fa-home"></i>Home</a>
+             <li className = "nav-item ">
+               <a className = "nav-link active home" aria-current="page" href="#"> <i className = "fas fa-home"></i>Home</a>
              </li>
              <li className = "nav-item">
                 <a className = "nav-link active"><i className = "fas fa-user"> </i>Profile</a>

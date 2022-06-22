@@ -6,6 +6,7 @@ import Navbar from "./navbar";
 
 
 
+
 const generator = rough.generator();
 
 const createElement = (id, x1, y1, x2, y2, type) => {
@@ -377,11 +378,11 @@ const App = () => {
 
   
   const handleMouseOver = () => {
-    setIsHovering(true);
+    setIsHovering(false);
   };
 
   const handleMouseOut = () => {
-    setIsHovering(false);
+    setIsHovering(true);
   };
 
   return (
@@ -391,8 +392,8 @@ const App = () => {
       <div className = "wrapper">
           <div className = "sidebar">
             <ul>
-                <li><a href="#">
-                  <div onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>
+                <li><a href="#$" title="Selection">
+                  {/* <div onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>
                     <input
                     type="radio"
                     id="selection"
@@ -402,46 +403,46 @@ const App = () => {
                     <label htmlFor="selection"><img className ="logoImg" src= "/image/selection.png" alt="Logo"/>Selection</label>
                   </div>
 
-                  {isHovering && <h5>Selection</h5>}
-                {/* <input
+                  {isHovering && <h5>Selection</h5>} */}
+                <input
                   type="radio"
                   id="selection"
                   checked={tool === "selection"}
                   onChange={() => setTool("selection")}
                 />
-                <label htmlFor="selection"><img className ="logoImg" title="Selection" src= "/image/selection.png" alt="Logo"/>Selection</label> */}
+                <label htmlFor="selection"><img className ="logoImg" src= "/image/selection.png" alt="Logo"/></label>
                 </a></li>
-                <li><a href="#">
+                <li><a href="#$" title="Pencil">
                 <input
                   type="radio"
                   id="pencil"
                   checked={tool === "pencil"}
                   onChange={() => setTool("pencil")}
                 />
-                <label htmlFor="pencil"><img className = "logoImg" src= "/image/pencil.png" alt="Logo"/>Pencil</label>                
+                <label htmlFor="pencil"><img className = "logoImg" src= "/image/pencil.png" alt="Logo"/></label>                
                 </a></li>
-                <li><a href="#">
+                <li><a href="#$" title="Line">
                   <input type="radio" id="line" checked={tool === "line"} onChange={() => setTool("line")} />
-                  <label htmlFor="line"><img className = "logoImg" src= "/image/line.png" alt="Logo"/>Line</label>
+                  <label htmlFor="line"><img className = "logoImg" src= "/image/line.png" alt="Logo"/></label>
                 </a></li>
-                <li><a href="#">
+                <li><a href="#$" title="Rectangle">
                   <input
                     type="radio"
                     id="rectangle"
                     checked={tool === "rectangle"}
                     onChange={() => setTool("rectangle")}
                   />
-                  <label htmlFor="rectangle"><img className = "logoImg"  src= "/image/rectangle.png" alt="Logo"/>Rectangle</label>  
+                  <label htmlFor="rectangle"><img className = "logoImg"  src= "/image/rectangle.png" alt="Logo"/></label>  
                 </a></li>
-                <li><a href="#">
+                <li><a href="#$" title="Text">
                   <input type="radio" id="text" checked={tool === "text"} onChange={() => setTool("text")} />
-                  <label htmlFor="text"><img className = "logoImg" src= "/image/text.png" alt="Logo"/>Text</label>   
+                  <label htmlFor="text"><img className = "logoImg" src= "/image/text.png" alt="Logo"/></label>   
                 </a></li>
-                <li><a href="#">
-                  < ><img onClick={undo} className = "logoImg" src= "/image/undo.png" alt="Logo"/>Undo</>                  
+                <li><a href="#$" title="Undo">
+                  < ><img onClick={undo} className = "logoImg" src= "/image/undo.png" alt="Logo"/></>                  
                 </a></li>
-                <li><a href="#">
-                  < ><img onClick={redo} className = "logoImg" src= "/image/redo.png" alt="Logo"/>Redo</>                  
+                <li><a href="#$" title="Redo">
+                  < ><img onClick={redo} className = "logoImg" src= "/image/redo.png" alt="Logo"/></>                  
                 </a></li>
                 
             </ul> 
