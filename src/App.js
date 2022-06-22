@@ -2,6 +2,7 @@ import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
 import rough from "roughjs/bundled/rough.esm";
 import getStroke from "perfect-freehand";
 import "../src/App.css";
+import Navbar from "./navbar";
 
 
 
@@ -198,6 +199,7 @@ const App = () => {
   const [tool, setTool] = useState("pencil");
   const [selectedElement, setSelectedElement] = useState(null);
   const textAreaRef = useRef();
+  const [isHovering, setIsHovering] = useState(false);
 
   useLayoutEffect(() => {
     const canvas = document.getElementById("canvas");
@@ -373,56 +375,41 @@ const App = () => {
     updateElement(id, x1, y1, null, null, type, { text: event.target.value });
   };
 
+  
+  const handleMouseOver = () => {
+    setIsHovering(true);
+  };
+
+  const handleMouseOut = () => {
+    setIsHovering(false);
+  };
+
   return (
 
     <div>
-     <nav class="navbar bg-light fixed-top">
-     <div class="container-fluid">
-       <button class="navbar-toggler " type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
-         <span class="navbar-toggler-icon"></span>
-       </button> 
-       <a class="navbar-brand headline me-auto" href="#">AdDraw</a>
-       <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
-         <div class="offcanvas-header">
-           <h5 class="offcanvas-title headline" id="offcanvasNavbarLabel">AdDraw</h5>
-           <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-         </div>
-         <div class="offcanvas-body">
-           <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-             <li class="nav-item">
-               <a class="nav-link active" aria-current="page" href="#"> <i class="fas fa-home"></i>Home</a>
-             </li>
-             <li class="nav-item">
-                <a class="nav-link active"><i class="fas fa-user"> </i>Profile</a>
-             </li>
-             <li class="nav-item">
-                <a class="nav-link active"><i class="fas fa-address-card"> </i>About</a>
-             </li>
-             <li class="nav-item">
-                <a class="nav-link active"><i class="fas fa-address-book"> </i>Contact</a>
-             </li>
-           </ul>
-           <div class="social_media">
-              <a href="#"><i class="fab fa-facebook-f"></i></a>
-              <a href="#"><i class="fab fa-twitter"></i></a>
-              <a href="#"><i class="fab fa-instagram"></i></a>
-            </div>
-          </div>
-        </div>
-       </div>
-      </nav>
-
-      <div class="wrapper">
-          <div class="sidebar">
+     <Navbar />
+      <div className = "wrapper">
+          <div className = "sidebar">
             <ul>
                 <li><a href="#">
-                <input
+                  <div onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>
+                    <input
+                    type="radio"
+                    id="selection"
+                    checked={tool === "selection"}
+                    onChange={() => setTool("selection")}
+                    />
+                    <label htmlFor="selection"><img className ="logoImg" src= "/image/selection.png" alt="Logo"/>Selection</label>
+                  </div>
+
+                  {isHovering && <h5>Selection</h5>}
+                {/* <input
                   type="radio"
                   id="selection"
                   checked={tool === "selection"}
                   onChange={() => setTool("selection")}
                 />
-                <label htmlFor="selection"><img class = "logoImg" src= "/image/selection.png" alt="Logo"/>Selection</label>
+                <label htmlFor="selection"><img className ="logoImg" title="Selection" src= "/image/selection.png" alt="Logo"/>Selection</label> */}
                 </a></li>
                 <li><a href="#">
                 <input
@@ -431,11 +418,11 @@ const App = () => {
                   checked={tool === "pencil"}
                   onChange={() => setTool("pencil")}
                 />
-                <label htmlFor="pencil"><img class = "logoImg" src= "/image/pencil.png" alt="Logo"/>Pencil</label>                
+                <label htmlFor="pencil"><img className = "logoImg" src= "/image/pencil.png" alt="Logo"/>Pencil</label>                
                 </a></li>
                 <li><a href="#">
                   <input type="radio" id="line" checked={tool === "line"} onChange={() => setTool("line")} />
-                  <label htmlFor="line"><img class = "logoImg" src= "/image/line.png" alt="Logo"/>Line</label>
+                  <label htmlFor="line"><img className = "logoImg" src= "/image/line.png" alt="Logo"/>Line</label>
                 </a></li>
                 <li><a href="#">
                   <input
@@ -444,27 +431,23 @@ const App = () => {
                     checked={tool === "rectangle"}
                     onChange={() => setTool("rectangle")}
                   />
-                  <label htmlFor="rectangle"><img class = "logoImg" src= "/image/rectangle.png" alt="Logo"/>Rectangle</label>  
+                  <label htmlFor="rectangle"><img className = "logoImg"  src= "/image/rectangle.png" alt="Logo"/>Rectangle</label>  
                 </a></li>
                 <li><a href="#">
                   <input type="radio" id="text" checked={tool === "text"} onChange={() => setTool("text")} />
-                  <label htmlFor="text"><img class = "logoImg" src= "/image/text.png" alt="Logo"/>Text</label>   
+                  <label htmlFor="text"><img className = "logoImg" src= "/image/text.png" alt="Logo"/>Text</label>   
                 </a></li>
                 <li><a href="#">
-                  < ><img onClick={undo} class = "logoImg" src= "/image/undo.png" alt="Logo"/>Undo</>                  
+                  < ><img onClick={undo} className = "logoImg" src= "/image/undo.png" alt="Logo"/>Undo</>                  
                 </a></li>
                 <li><a href="#">
-                  < ><img onClick={redo} class = "logoImg" src= "/image/redo.png" alt="Logo"/>Redo</>                  
+                  < ><img onClick={redo} className = "logoImg" src= "/image/redo.png" alt="Logo"/>Redo</>                  
                 </a></li>
                 
             </ul> 
             
           </div>
-        </div>
-      
-      {/* <div class = "items " style={{ }}>        
-        
-      </div> */}
+        </div>      
       {action === "writing" ? (
         <textarea
           ref={textAreaRef}
@@ -492,6 +475,8 @@ const App = () => {
         onMouseDown={handleMouseDown}
         onMouseMove={handleMouseMove}
         onMouseUp={handleMouseUp}
+        onMouseOver={handleMouseOver}
+        onMouseOut={handleMouseOut}
       >
         Canvas
       </canvas>
