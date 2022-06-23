@@ -31,7 +31,7 @@ const nearPoint = (x, y, x1, y1, name) => {
   return Math.abs(x - x1) < 5 && Math.abs(y - y1) < 5 ? name : null;
 };
 
-const onLine = (x1, y1, x2, y2, x, y, maxDistance = 1) => {
+const onLine = (x1, y1, x2, y2, x, y, maxDistance = 5) => {
   const a = { x: x1, y: y1 };
   const b = { x: x2, y: y2 };
   const c = { x, y };
@@ -218,10 +218,10 @@ const App = () => {
   useEffect(() => {
     const undoRedoFunction = event => {
       if ((event.metaKey || event.ctrlKey) && event.key === "z") {
-        if (event.shiftKey) {
-          redo();
-        } else {
+        if (!event.shiftKey) {
           undo();
+        } else {
+          redo();
         }
       }
     };
@@ -393,17 +393,6 @@ const App = () => {
           <div className = "sidebar">
             <ul>
                 <li><a href="#$" title="Selection">
-                  {/* <div onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>
-                    <input
-                    type="radio"
-                    id="selection"
-                    checked={tool === "selection"}
-                    onChange={() => setTool("selection")}
-                    />
-                    <label htmlFor="selection"><img className ="logoImg" src= "/image/selection.png" alt="Logo"/>Selection</label>
-                  </div>
-
-                  {isHovering && <h5>Selection</h5>} */}
                 <input
                   type="radio"
                   id="selection"
@@ -439,10 +428,10 @@ const App = () => {
                   <label htmlFor="text"><img className = "logoImg" src= "/image/text.png" alt="Logo"/></label>   
                 </a></li>
                 <li><a href="#$" title="Undo">
-                  < ><img onClick={undo} className = "logoImg" src= "/image/undo.png" alt="Logo"/></>                  
+                  < ><img onClick={undo} className = "logoImg undo-redo" src= "/image/undo.png" alt="Logo"/></>                  
                 </a></li>
                 <li><a href="#$" title="Redo">
-                  < ><img onClick={redo} className = "logoImg" src= "/image/redo.png" alt="Logo"/></>                  
+                  < ><img onClick={redo} className = "logoImg undo-redo" src= "/image/redo.png" alt="Logo"/></>                  
                 </a></li>
                 
             </ul> 
