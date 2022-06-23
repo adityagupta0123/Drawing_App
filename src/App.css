@@ -55,14 +55,14 @@ body{
 .wrapper .sidebar label {
   border-radius: 50%;
   background-color: #e1e0e8;
-  padding: .5rem .1rem .5rem .5rem ;
+  padding: .6rem .1rem .6rem .7rem ;
 }
 
 .wrapper .sidebar .undo-redo {
   border-radius: 50%;
   background-color: #e1e0e8;
-  width: 75%;
-  padding: .3rem; 
+  width: 90%;
+  padding: .4rem; 
 }
 
 .logoImg {
