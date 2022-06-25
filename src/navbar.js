@@ -31,9 +31,9 @@ function navbar() {
              </li>
            </ul>
            <div className = "social_media">
-              <a href="#"><i className = "fab fa-facebook-f"></i></a>
+              <a href="https://github.com/adityagupta0123" target={"_blank"}><i className = "fab fa-github"></i></a>
               <a href="#"><i className = "fab fa-twitter"></i></a>
-              <a href="#"><i className = "fab fa-instagram"></i></a>
+              <a href="https://www.linkedin.com/in/aditya-gupta-68a741220/" target={"_blank"}><i className = "fab fa-linkedin"></i></a>
             </div>
           </div>
         </div>

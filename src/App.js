@@ -200,7 +200,7 @@ const App = () => {
   const [tool, setTool] = useState("pencil");
   const [selectedElement, setSelectedElement] = useState(null);
   const textAreaRef = useRef();
-  const [isHovering, setIsHovering] = useState(false);
+ 
 
   useLayoutEffect(() => {
     const canvas = document.getElementById("canvas");
@@ -308,7 +308,7 @@ const App = () => {
 
     if (tool === "selection") {
       const element = getElementAtPosition(clientX, clientY, elements);
-      event.target.style.cursor = element ? cursorForPosition(element.position) : "default";
+      event.target.style.cursor = element ? cursorForPosition(element.position) : "crosshair";
     }
 
     if (action === "drawing") {
@@ -377,13 +377,7 @@ const App = () => {
   };
 
   
-  const handleMouseOver = () => {
-    setIsHovering(false);
-  };
-
-  const handleMouseOut = () => {
-    setIsHovering(true);
-  };
+  
 
   return (
 
@@ -411,7 +405,12 @@ const App = () => {
                 <label htmlFor="pencil"><img className = "logoImg" src= "/image/pencil.png" alt="Logo"/></label>                
                 </a></li>
                 <li><a href="#$" title="Line">
-                  <input type="radio" id="line" checked={tool === "line"} onChange={() => setTool("line")} />
+                  <input 
+                    type="radio" 
+                    id="line" 
+                    checked={tool === "line"}
+                    onChange={() => setTool("line")}
+                    />
                   <label htmlFor="line"><img className = "logoImg" src= "/image/line.png" alt="Logo"/></label>
                 </a></li>
                 <li><a href="#$" title="Rectangle">
@@ -424,7 +423,12 @@ const App = () => {
                   <label htmlFor="rectangle"><img className = "logoImg"  src= "/image/rectangle.png" alt="Logo"/></label>  
                 </a></li>
                 <li><a href="#$" title="Text">
-                  <input type="radio" id="text" checked={tool === "text"} onChange={() => setTool("text")} />
+                  <input 
+                    type="radio"
+                    id="text"
+                    checked={tool === "text"}
+                    onChange={() => setTool("text")} 
+                    />
                   <label htmlFor="text"><img className = "logoImg" src= "/image/text.png" alt="Logo"/></label>   
                 </a></li>
                 <li><a href="#$" title="Undo">
@@ -465,8 +469,6 @@ const App = () => {
         onMouseDown={handleMouseDown}
         onMouseMove={handleMouseMove}
         onMouseUp={handleMouseUp}
-        onMouseOver={handleMouseOver}
-        onMouseOut={handleMouseOut}
       >
         Canvas
       </canvas>
