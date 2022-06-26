@@ -34,7 +34,7 @@ body{
 .wrapper .sidebar{
  width: 8%;
  height: 100%;
- padding: 3% 0;
+ padding: 6% 0;
  position: fixed;
 
 }
@@ -53,10 +53,10 @@ body{
 
 
 
-.wrapper .sidebar label {
-  border-radius: 50%;
+.wrapper .sidebar button {
+  border-radius: 60%;
   background-color: #e1e0e8;
-  padding: .6rem .1rem .6rem .7rem ;
+  padding: .6rem .1rem .5rem .1rem ;
   
 }
 

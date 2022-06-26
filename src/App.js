@@ -375,7 +375,7 @@ const App = () => {
     setSelectedElement(null);
     updateElement(id, x1, y1, null, null, type, { text: event.target.value });
   };
-
+  
   
   
 
@@ -387,49 +387,54 @@ const App = () => {
           <div className = "sidebar">
             <ul>
                 <li><a href="#$" title="Selection">
-                <input
-                  type="radio"
+                <button
+                  // type="button"
                   id="selection"
                   checked={tool === "selection"}
-                  onChange={() => setTool("selection")}
-                />
+                  onClick={() => setTool("selection")}
+                >
                 <label htmlFor="selection"><img className ="logoImg" src= "/image/selection.png" alt="Logo"/></label>
+                </button>
                 </a></li>
                 <li><a href="#$" title="Pencil">
-                <input
-                  type="radio"
+                <button
+                  // type="butto"
                   id="pencil"
                   checked={tool === "pencil"}
-                  onChange={() => setTool("pencil")}
-                />
-                <label htmlFor="pencil"><img className = "logoImg" src= "/image/pencil.png" alt="Logo"/></label>                
+                  onClick={() => setTool("pencil")}
+                >
+                <label htmlFor="pencil"><img className = "logoImg" src= "/image/pencil.png" alt="Logo"/></label>  
+                </button>              
                 </a></li>
                 <li><a href="#$" title="Line">
-                  <input 
-                    type="radio" 
+                  <button 
+                    // type="radio" 
                     id="line" 
                     checked={tool === "line"}
-                    onChange={() => setTool("line")}
-                    />
+                    onClick={() => setTool("line")}
+                    >
                   <label htmlFor="line"><img className = "logoImg" src= "/image/line.png" alt="Logo"/></label>
+                  </button>
                 </a></li>
                 <li><a href="#$" title="Rectangle">
-                  <input
-                    type="radio"
+                  <button
+                    // type="radio"
                     id="rectangle"
                     checked={tool === "rectangle"}
-                    onChange={() => setTool("rectangle")}
-                  />
-                  <label htmlFor="rectangle"><img className = "logoImg"  src= "/image/rectangle.png" alt="Logo"/></label>  
+                    onClick={() => setTool("rectangle")}
+                  >
+                  <label htmlFor="rectangle"><img className = "logoImg"  src= "/image/rectangle.png" alt="Logo"/></label>
+                  </button>  
                 </a></li>
                 <li><a href="#$" title="Text">
-                  <input 
-                    type="radio"
+                  <button 
+                    // type="radio"
                     id="text"
                     checked={tool === "text"}
-                    onChange={() => setTool("text")} 
-                    />
-                  <label htmlFor="text"><img className = "logoImg" src= "/image/text.png" alt="Logo"/></label>   
+                    onClick={() => setTool("text")} 
+                    >
+                  <label htmlFor="text"><img className = "logoImg" src= "/image/text.png" alt="Logo"/></label> 
+                  </button>  
                 </a></li>
                 <li><a href="#$" title="Undo">
                   < ><img onClick={undo} className = "logoImg undo-redo" src= "/image/undo.png" alt="Logo"/></>                  
