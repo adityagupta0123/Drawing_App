@@ -48,7 +48,7 @@ body{
 
 .wrapper .sidebar ul li :hover {
     cursor: pointer;
-    background-color: #d3d4d5;
+    background-color: #cac9c8;
 }
 
 
@@ -80,7 +80,7 @@ body{
 }
 
 .home{
-  border-bottom:2px double #594f8d;
+  border-bottom:2px double #3c3c3e;
 }
 
  ul li a .fas{
